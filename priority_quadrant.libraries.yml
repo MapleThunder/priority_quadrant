@@ -1,0 +1,13 @@
+plotly:
+  version: 1.5.0
+  license:
+    name: MIT
+    url: https://github.com/plotly/plotly.js/blob/master/LICENSE
+  js:
+    https://cdn.plot.ly/plotly-1.5.0.min.js: { type: external, minified: true }
+graphing:
+  js:
+    js/priority_graph.js: {}
+  dependencies:
+    - core/jquery
+    - priority_quadrant/plotly
