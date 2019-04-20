@@ -8,6 +8,8 @@
 
 namespace Drupal\priority_quadrant\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Annotation\Translation;
+use Drupal\Core\Field\Annotation\FieldWidget;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Field\WidgetInterface;
@@ -46,6 +48,12 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
     // Create a number array for options
     $options = $this->createNumberArray(10);
     
+    // Check to make sure the item complexity isn't null
+	  // If it is null, default to lowest
+	  if ($item->complexity == NULL) {
+	    $item->complexity = 1;
+	  }
+	  
     $default_complexity = is_numeric($item->complexity) ? $item->complexity : $this->shirtToNumber($item->complexity);
     $element['complexity'] = [
       '#title' => $this->t('Complexity'),
@@ -53,6 +61,12 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
       '#options' => $options,
       '#default_value' => $default_complexity,
     ];
+	
+	  // Check to make sure the item value isn't null
+	  // If it is null, default to lowest
+	  if ($item->value == NULL) {
+		  $item->value = 1;
+	  }
     
     $default_value = is_numeric($item->value) ? $item->value : $this->shirtToNumber($item->value);
     $element['value'] = [

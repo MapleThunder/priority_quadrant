@@ -93,11 +93,11 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
     
     // Check to see if any of the fields have a value currently
     $t_bool = isset($item['task']) && !empty($item['task']);
-    $c_bool = isset($item['complexity']) && !empty($item['row']['complexity']);
-    $v_bool = isset($item['value']) && !empty($item['value']);
+//    $c_bool = isset($item['complexity']) && !empty($item['row']['complexity']);
+//    $v_bool = isset($item['value']) && !empty($item['value']);
     
     // Use the value checks to determine if the has_stuff flag should be switched
-    if ($t_bool || $c_bool || $v_bool) {
+    if ($t_bool) {
       $has_stuff = TRUE;
     }
     

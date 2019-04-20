@@ -2,4 +2,4 @@ name: 'Priority Quadrant Chart'
 description: 'Can create a quadrant chart to help prioritize tasks.'
 type: module
 core: 8.x
-package: 'Maple Storm'
+package: 'Organization'
