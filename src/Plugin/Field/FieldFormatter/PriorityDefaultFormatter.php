@@ -9,6 +9,8 @@
 namespace Drupal\priority_quadrant\Plugin\Field\FieldFormatter;
 
 
+use Drupal\Core\Annotation\Translation;
+use Drupal\Core\Field\Annotation\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -62,6 +64,7 @@ class PriorityDefaultFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $output = [];
+    $scale = $this->getSetting('scale');
   
     // Iterate over every field item and build a renderable array for each item.
     foreach ($items as $delta => $item) {
@@ -97,7 +100,8 @@ class PriorityDefaultFormatter extends FormatterBase {
         ],
       ];
   
-      $complexity_string = is_numeric($item->complexity) ? $item->complexity : $this->formatShirtString($item->complexity);
+      $complexity_string = ($scale == 'one_ten') ? $item->complexity : $this->formatShirtString($item->complexity);
+      
       $build['complexity'] = [
         '#type' => 'container',
         '#attributes' => [
@@ -123,7 +127,7 @@ class PriorityDefaultFormatter extends FormatterBase {
         ],
       ];
   
-      $value_string = is_numeric($item->value) ? $item->value : $this->formatShirtString($item->value);
+      $value_string = ($scale == 'one_ten') ? $item->value : $this->formatShirtString($item->value);
       $build['task_value'] = [
         '#type' => 'container',
         '#attributes' => [
@@ -165,19 +169,24 @@ class PriorityDefaultFormatter extends FormatterBase {
   protected function formatShirtString(string $size): string {
     
     switch ($size) {
-      case 'xs':
+      case 1:
+      case 2:
         $output = 'Extra Small';
         break;
-      case 'sm':
+      case 3:
+      case 4:
         $output = 'Small';
         break;
-      case 'md':
+      case 5:
+      case 6:
         $output = 'Medium';
         break;
-      case 'lg':
+      case 7:
+      case 8:
         $output = 'Large';
         break;
-      case 'xl':
+      case 9:
+      case 10:
         $output = 'Extra Large';
         break;
   

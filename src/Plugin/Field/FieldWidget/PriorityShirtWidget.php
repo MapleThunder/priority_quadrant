@@ -8,6 +8,8 @@
 
 namespace Drupal\priority_quadrant\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Annotation\Translation;
+use Drupal\Core\Field\Annotation\FieldWidget;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Field\WidgetInterface;
@@ -43,30 +45,33 @@ class PriorityShirtWidget extends WidgetBase implements WidgetInterface {
       '#default_value' => $item->task,
     ];
     
-    $default_complexity = is_numeric($item->complexity) ? $this->numberToShirt($item->complexity) : $item->complexity;
+//    $default_complexity = is_numeric($item->complexity) ? $this->numberToShirt($item->complexity) : $item->complexity;
+    $default_complexity = $item->complexity + ($item->complexity % 2);
+    
     $element['complexity'] = [
       '#title' => $this->t('Complexity'),
       '#type' => 'select',
       '#options' => [
-        'xs' => $this->t('Extra Small'),
-        'sm' => $this->t('Small'),
-        'md' => $this->t('Medium'),
-        'lg' => $this->t('Large'),
-        'xl' => $this->t('Extra Large'),
+        2 => $this->t('Extra Small'),
+        4 => $this->t('Small'),
+        6 => $this->t('Medium'),
+        8 => $this->t('Large'),
+        10 => $this->t('Extra Large'),
       ],
       '#default_value' => $default_complexity,
     ];
   
-    $default_value = is_numeric($item->value) ? $this->numberToShirt($item->value) : $item->value;
+//    $default_value = is_numeric($item->value) ? $this->numberToShirt($item->value) : $item->value;
+    $default_value = $item->value + ($item->value % 2);
     $element['value'] = [
       '#title' => $this->t('Value'),
       '#type' => 'select',
       '#options' => [
-        'xs' => $this->t('Extra Small'),
-        'sm' => $this->t('Small'),
-        'md' => $this->t('Medium'),
-        'lg' => $this->t('Large'),
-        'xl' => $this->t('Extra Large'),
+	      2 => $this->t('Extra Small'),
+	      4 => $this->t('Small'),
+	      6 => $this->t('Medium'),
+	      8 => $this->t('Large'),
+	      10 => $this->t('Extra Large'),
       ],
       '#default_value' => $default_value,
     ];

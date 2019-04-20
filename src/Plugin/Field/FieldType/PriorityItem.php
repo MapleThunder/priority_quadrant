@@ -9,6 +9,7 @@
 namespace Drupal\priority_quadrant\Plugin\Field\FieldType;
 
 use Drupal\Core\Annotation\Translation;
+use Drupal\Core\Field\Annotation\FieldType;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
@@ -46,14 +47,14 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
     
     $output['columns']['complexity'] = [
       'description' => 'How difficult or complex the task is to complete.',
-      'type' => 'varchar',
-      'length' => 2,
+      'type' => 'int',
+      'unsigned' => TRUE,
     ];
     
     $output['columns']['value'] = [
       'description' => 'How valuable the completed task is to the end result.',
-      'type' => 'varchar',
-      'length' => 2,
+      'type' => 'int',
+      'unsigned' => TRUE,
     ];
     
     
@@ -67,9 +68,9 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
     $properties = [];
     $properties['task'] = DataDefinition::create('string')
       ->setLabel(t("Task"));
-    $properties['complexity'] = DataDefinition::create('string')
+    $properties['complexity'] = DataDefinition::create('integer')
       ->setLabel(t("Complexity"));
-    $properties['value'] = DataDefinition::create('string')
+    $properties['value'] = DataDefinition::create('integer')
       ->setLabel(t("Value"));
     
     return $properties;

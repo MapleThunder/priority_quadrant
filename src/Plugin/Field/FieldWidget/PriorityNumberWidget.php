@@ -54,7 +54,9 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
 	    $item->complexity = 1;
 	  }
 	  
-    $default_complexity = is_numeric($item->complexity) ? $item->complexity : $this->shirtToNumber($item->complexity);
+//    $default_complexity = is_numeric($item->complexity) ? $item->complexity : $this->shirtToNumber($item->complexity);
+	  $default_complexity = $item->complexity;
+	  
     $element['complexity'] = [
       '#title' => $this->t('Complexity'),
       '#type' => 'select',
@@ -68,7 +70,8 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
 		  $item->value = 1;
 	  }
     
-    $default_value = is_numeric($item->value) ? $item->value : $this->shirtToNumber($item->value);
+//    $default_value = is_numeric($item->value) ? $item->value : $this->shirtToNumber($item->value);
+	  $default_value = $item->value;
     $element['value'] = [
       '#title' => $this->t('Value'),
       '#type' => 'select',
