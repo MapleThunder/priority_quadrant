@@ -38,7 +38,34 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
     
     $item =& $items[$delta];
     
+//    $element['row'] = [
+//    	'#type' => 'container',
+//	    '#attributes' => [
+//	    	'class' => ['row',],
+//	    ],
+//    ];
+//
+//	  $element['row']['task_container'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['col-sm-8',],
+//		  ],
+//	  ];
+//	  $element['row']['comp_container'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['col-sm-2',],
+//		  ],
+//	  ];
+//	  $element['row']['value_container'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['col-sm-2',],
+//		  ],
+//	  ];
+    
     // The key of the element should be the setting name
+//    $element['row']['task_container']['task'] = [
     $element['task'] = [
       '#title' => $this->t('Task'),
       '#type' => 'textfield',
@@ -54,9 +81,9 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
 	    $item->complexity = 1;
 	  }
 	  
-//    $default_complexity = is_numeric($item->complexity) ? $item->complexity : $this->shirtToNumber($item->complexity);
 	  $default_complexity = $item->complexity;
 	  
+//    $element['row']['comp_container']['complexity'] = [
     $element['complexity'] = [
       '#title' => $this->t('Complexity'),
       '#type' => 'select',
@@ -69,11 +96,11 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
 	  if ($item->value == NULL) {
 		  $item->value = 1;
 	  }
-    
-//    $default_value = is_numeric($item->value) ? $item->value : $this->shirtToNumber($item->value);
+   
 	  $default_value = $item->value;
+//    $element['row']['value_container']['value'] = [
     $element['value'] = [
-      '#title' => $this->t('Value'),
+      '#title' => $this->t('Task Value'),
       '#type' => 'select',
       '#options' => $options,
       '#default_value' => $default_value,

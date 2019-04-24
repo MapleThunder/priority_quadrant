@@ -69,7 +69,7 @@ class PriorityDefaultFormatter extends FormatterBase {
     // Iterate over every field item and build a renderable array for each item.
     foreach ($items as $delta => $item) {
       $build = [];
-  
+      
       // Render the task. Nothing fancy as such.
       // We build a "container" element, within which we render
       // 2 child elements: one, the label of the property (Name);

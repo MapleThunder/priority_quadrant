@@ -37,17 +37,44 @@ class PriorityShirtWidget extends WidgetBase implements WidgetInterface {
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
 
     $item =& $items[$delta];
-    
+	
+//	  $element['row'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['row',],
+//		  ],
+//	  ];
+//
+//	  $element['row']['task_container'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['col-sm-8',],
+//		  ],
+//	  ];
+//	  $element['row']['comp_container'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['col-sm-2',],
+//		  ],
+//	  ];
+//	  $element['row']['value_container'] = [
+//		  '#type' => 'container',
+//		  '#attributes' => [
+//			  'class' => ['col-sm-2',],
+//		  ],
+//	  ];
+	  
     // The key of the element should be the setting name
+//    $element['row']['task_container']['task'] = [
     $element['task'] = [
       '#title' => $this->t('Task'),
       '#type' => 'textfield',
       '#default_value' => $item->task,
     ];
     
-//    $default_complexity = is_numeric($item->complexity) ? $this->numberToShirt($item->complexity) : $item->complexity;
     $default_complexity = $item->complexity + ($item->complexity % 2);
     
+//    $element['row']['comp_container']['complexity'] = [
     $element['complexity'] = [
       '#title' => $this->t('Complexity'),
       '#type' => 'select',
@@ -61,10 +88,10 @@ class PriorityShirtWidget extends WidgetBase implements WidgetInterface {
       '#default_value' => $default_complexity,
     ];
   
-//    $default_value = is_numeric($item->value) ? $this->numberToShirt($item->value) : $item->value;
     $default_value = $item->value + ($item->value % 2);
+//    $element['row']['value_container']['value'] = [
     $element['value'] = [
-      '#title' => $this->t('Value'),
+      '#title' => $this->t('Task Value'),
       '#type' => 'select',
       '#options' => [
 	      2 => $this->t('Extra Small'),
