@@ -25,23 +25,23 @@ trait ScaleConversionTrait {
 
     switch ($n) {
       case 1:
-        $shirt = 'xs';
+        $shirt = "xs";
         break;
 
       case 2:
-        $shirt = 'sm';
+        $shirt = "sm";
         break;
 
       case 3:
-        $shirt = 'md';
+        $shirt = "md";
         break;
 
       case 4:
-        $shirt = 'lg';
+        $shirt = "lg";
         break;
 
       case 5:
-        $shirt = 'xl';
+        $shirt = "xl";
         break;
 
       default:
@@ -65,23 +65,23 @@ trait ScaleConversionTrait {
   public function shirtToNumber(string $shirt): int {
 
     switch ($shirt) {
-      case 'xs':
+      case "xs":
         $number = 2;
         break;
 
-      case 'sm':
+      case "sm":
         $number = 4;
         break;
 
-      case 'md':
+      case "md":
         $number = 6;
         break;
 
-      case 'lg':
+      case "lg":
         $number = 8;
         break;
 
-      case 'xl':
+      case "xl":
         $number = 10;
         break;
 

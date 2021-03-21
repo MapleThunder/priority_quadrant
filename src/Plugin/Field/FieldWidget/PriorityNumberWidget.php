@@ -35,37 +35,37 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
   ) {
     $item =& $items[$delta];
 
-    $element['row'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['row'],
+    $element["row"] = [
+      "#type" => "container",
+      "#attributes" => [
+        "class" => ["row"],
       ],
     ];
 
-    $element['row']['task_container'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['col-sm-8'],
+    $element["row"]["task_container"] = [
+      "#type" => "container",
+      "#attributes" => [
+        "class" => ["col-sm-8"],
       ],
     ];
-    $element['row']['comp_container'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['col-sm-2'],
+    $element["row"]["comp_container"] = [
+      "#type" => "container",
+      "#attributes" => [
+        "class" => ["col-sm-2"],
       ],
     ];
-    $element['row']['value_container'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['col-sm-2'],
+    $element["row"]["value_container"] = [
+      "#type" => "container",
+      "#attributes" => [
+        "class" => ["col-sm-2"],
       ],
     ];
 
     // The key of the element should be the setting name.
-    $element['task'] = [
-      '#title' => $this->t('Task'),
-      '#type' => 'textfield',
-      '#default_value' => $item->task,
+    $element["task"] = [
+      "#title" => $this->t("Task"),
+      "#type" => "textfield",
+      "#default_value" => $item->task,
     ];
 
     // Create a number array for options.
@@ -79,11 +79,11 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
 
     $default_complexity = $item->complexity;
 
-    $element['complexity'] = [
-      '#title' => $this->t('Complexity'),
-      '#type' => 'select',
-      '#options' => $options,
-      '#default_value' => $default_complexity,
+    $element["complexity"] = [
+      "#title" => $this->t("Complexity"),
+      "#type" => "select",
+      "#options" => $options,
+      "#default_value" => $default_complexity,
     ];
 
     // Check to make sure the item value isn't null.
@@ -93,11 +93,11 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
     }
 
     $default_value = $item->value;
-    $element['value'] = [
-      '#title' => $this->t('Task Value'),
-      '#type' => 'select',
-      '#options' => $options,
-      '#default_value' => $default_value,
+    $element["value"] = [
+      "#title" => $this->t("Task Value"),
+      "#type" => "select",
+      "#options" => $options,
+      "#default_value" => $default_value,
     ];
 
     return $element;

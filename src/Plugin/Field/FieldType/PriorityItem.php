@@ -29,22 +29,22 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
     $output = [];
 
     // Create a basic column for the task.
-    $output['columns']['task'] = [
-      'description' => 'The task to be completed.',
-      'type' => 'varchar',
-      'length' => 512,
+    $output["columns"]["task"] = [
+      "description" => "The task to be completed.",
+      "type" => "varchar",
+      "length" => 512,
     ];
 
-    $output['columns']['complexity'] = [
-      'description' => 'How difficult or complex the task is to complete.',
-      'type' => 'int',
-      'unsigned' => TRUE,
+    $output["columns"]["complexity"] = [
+      "description" => "How difficult or complex the task is to complete.",
+      "type" => "int",
+      "unsigned" => TRUE,
     ];
 
-    $output['columns']['value'] = [
-      'description' => 'How valuable the completed task is to the end result.',
-      'type' => 'int',
-      'unsigned' => TRUE,
+    $output["columns"]["value"] = [
+      "description" => "How valuable the completed task is to the end result.",
+      "type" => "int",
+      "unsigned" => TRUE,
     ];
 
     return $output;
@@ -55,11 +55,11 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     $properties = [];
-    $properties['task'] = DataDefinition::create('string')
+    $properties["task"] = DataDefinition::create("string")
       ->setLabel(t("Task"));
-    $properties['complexity'] = DataDefinition::create('integer')
+    $properties["complexity"] = DataDefinition::create("integer")
       ->setLabel(t("Complexity"));
-    $properties['value'] = DataDefinition::create('integer')
+    $properties["value"] = DataDefinition::create("integer")
       ->setLabel(t("Value"));
 
     return $properties;
@@ -81,7 +81,7 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
     $has_stuff = FALSE;
 
     // Check to see if any of the fields have a value currently.
-    $t_bool = isset($item['task']) && !empty($item['task']);
+    $t_bool = isset($item["task"]) && !empty($item["task"]);
     // $c_bool = isset($item['complexity']) && !empty($item['row']['complexity']);
     // $v_bool = isset($item['value']) && !empty($item['value']);
     // Use the value checks to determine if the has_stuff flag should be switched
