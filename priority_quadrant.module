@@ -1,1 +1,14 @@
 <?php
+
+/**
+ * Implements hook_theme().
+ */
+function priority_quadrant_theme() {
+  return [
+    "graph-block" => [
+      "variables" => [
+        "data" => [],
+      ]
+    ]
+  ];
+}
