@@ -115,8 +115,8 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
   public function createNumberArray(int $max): array {
     $output = [];
 
-    for ($i = 0; $i < $max; $i++) {
-      $output[$i + 1] = $i + 1;
+    for ($i = 1; $i <= $max; $i++) {
+      $output[$i] = $i;
     }
 
     return $output;

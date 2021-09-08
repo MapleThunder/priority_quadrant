@@ -19,28 +19,29 @@ trait ScaleConversionTrait {
    *   The corresponding tshirt size.
    */
   public function numberToShirt(int $number): string {
-    // Cut the number in half and floor it to give us a 1-5 scale to match
-    // the shirt sizes.
-    $n = floor($number / 2);
-
-    switch ($n) {
+    switch ($number) {
       case 1:
+      case 2:
         $shirt = 'xs';
         break;
 
-      case 2:
+      case 3:
+      case 4:
         $shirt = 'sm';
         break;
 
-      case 3:
+      case 5:
+      case 6:
         $shirt = 'md';
         break;
 
-      case 4:
+      case 7:
+      case 8:
         $shirt = 'lg';
         break;
 
-      case 5:
+      case 9:
+      case 10:
         $shirt = 'xl';
         break;
 
