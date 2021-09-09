@@ -68,12 +68,13 @@ class QuadrantGraphBlock extends BlockBase implements ContainerFactoryPluginInte
    * {@inheritdoc}
    */
   public function build() {
-    $node = $this->routeMatch->getParameter('node');
-    dump($node);
-
     return [
       "#theme" => 'graph-block',
-      "#data" => [],
+      "#attached" => [
+        "library" => [
+          "priority_quadrant/graphing"
+        ]
+      ]
     ];
   }
 

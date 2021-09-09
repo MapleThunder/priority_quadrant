@@ -9,6 +9,10 @@ function priority_quadrant_theme() {
       "variables" => [
         "data" => [],
       ]
+    ],
+    "field__node__field_priority" => [
+      "template" => "field--node--field-priority",
+      "base hook" => "field"
     ]
   ];
 }
