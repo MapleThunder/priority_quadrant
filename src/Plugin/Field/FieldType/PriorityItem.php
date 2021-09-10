@@ -14,10 +14,10 @@ use Drupal\Core\TypedData\DataDefinition;
  * @FieldType(
  *   id = "priority_quadrant_priority",
  *   label = @Translation("Priority"),
- *   description = @Translation("Custom field to map prioriry to a task."),
- *   category = @Translation("Organization"),
  *   default_formatter = "priority_default",
  *   default_widget = "priority_shirt",
+ *   description = @Translation("Custom field to map priority to a task."),
+ *   category = @Translation("Organization"),
  * )
  */
 class PriorityItem extends FieldItemBase implements FieldItemInterface {
@@ -26,43 +26,37 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
    * {@inheritdoc}
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    $output = [];
-
-    // Create a basic column for the task.
-    $output['columns']['task'] = [
-      'description' => 'The task to be completed.',
-      'type' => 'varchar',
-      'length' => 512,
+    return [
+      // Columns contains the values that the field will store.
+      'columns' => [
+        'task' => [
+          'description' => 'The task to be completed.',
+          'type' => 'varchar',
+          'length' => 512,
+        ],
+        'complexity' => [
+          'description' => 'How difficult or complex the task is to complete.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ],
+        'value' => [
+          'description' => 'How valuable the completed task is to the end result.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ]
+      ]
     ];
-
-    $output['columns']['complexity'] = [
-      'description' => 'How difficult or complex the task is to complete.',
-      'type' => 'int',
-      'unsigned' => TRUE,
-    ];
-
-    $output['columns']['value'] = [
-      'description' => 'How valuable the completed task is to the end result.',
-      'type' => 'int',
-      'unsigned' => TRUE,
-    ];
-
-    return $output;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties = [];
-    $properties['task'] = DataDefinition::create('string')
-      ->setLabel(t("Task"));
-    $properties['complexity'] = DataDefinition::create('integer')
-      ->setLabel(t("Complexity"));
-    $properties['value'] = DataDefinition::create('integer')
-      ->setLabel(t("Value"));
-
-    return $properties;
+    return [
+      'task' => DataDefinition::create('string')->setLabel(t("Task")),
+      'complexity' => DataDefinition::create('integer')->setLabel(t("Complexity")),
+      'value' => DataDefinition::create('integer')->setLabel(t("Value")),
+    ];
   }
 
   /**
@@ -78,18 +72,8 @@ class PriorityItem extends FieldItemBase implements FieldItemInterface {
   public function isEmpty() {
     // Grab the values and create a flag to indicate if the field has data or not.
     $item = $this->getValue();
-    $has_stuff = FALSE;
-
-    // Check to see if any of the fields have a value currently.
     $t_bool = isset($item['task']) && !empty($item['task']);
-    // $c_bool = isset($item['complexity']) && !empty($item['row']['complexity']);
-    // $v_bool = isset($item['value']) && !empty($item['value']);
-    // Use the value checks to determine if the has_stuff flag should be switched
-    if ($t_bool) {
-      $has_stuff = TRUE;
-    }
-
-    return !$has_stuff;
+    return !$t_bool;
   }
 
 }

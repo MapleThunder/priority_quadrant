@@ -28,7 +28,6 @@ class PriorityDefaultFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-
     return [
       "scale" => "shirt",
     ] + parent::defaultSettings();
@@ -38,7 +37,6 @@ class PriorityDefaultFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-
     $output["scale"] = [
       "#title" => t("Scale"),
       "#type" => "select",
@@ -85,10 +83,6 @@ class PriorityDefaultFormatter extends FormatterBase {
           "#attributes" => [
             "class" => ["field__item"],
           ],
-          // We use #plain_text instead of #markup to prevent XSS.
-          // plain_text will clean up the task string and render an
-          // HTML entity encoded string to prevent bad-guys from
-          // injecting JavaScript.
           "#plain_text" => $item->task,
         ],
       ];
@@ -114,10 +108,6 @@ class PriorityDefaultFormatter extends FormatterBase {
           "#attributes" => [
             "class" => ["field__item"],
           ],
-          // We use #plain_text instead of #markup to prevent XSS.
-          // plain_text will clean up the task string and render an
-          // HTML entity encoded string to prevent bad-guys from
-          // injecting JavaScript.
           "#plain_text" => $complexity_string,
         ],
       ];
@@ -143,10 +133,6 @@ class PriorityDefaultFormatter extends FormatterBase {
           "#attributes" => [
             "class" => ["field__item"],
           ],
-          // We use #plain_text instead of #markup to prevent XSS.
-          // plain_text will clean up the task string and render an
-          // HTML entity encoded string to prevent bad-guys from
-          // injecting JavaScript.
           "#plain_text" => $value_string,
         ],
       ];

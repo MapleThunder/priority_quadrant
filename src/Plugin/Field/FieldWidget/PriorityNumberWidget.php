@@ -40,25 +40,24 @@ class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
       '#attributes' => [
         'class' => ['row'],
       ],
-    ];
-
-    $element['row']['task_container'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['col-sm-8'],
+      'task_container' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => ['col-sm-8'],
+        ],
       ],
-    ];
-    $element['row']['comp_container'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['col-sm-2'],
+      'comp_container' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => ['col-sm-2'],
+        ],
       ],
-    ];
-    $element['row']['value_container'] = [
-      '#type' => 'container',
-      '#attributes' => [
-        'class' => ['col-sm-2'],
-      ],
+      'value_container' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => ['col-sm-2'],
+        ],
+      ]
     ];
 
     // The key of the element should be the setting name.
