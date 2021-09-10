@@ -61,11 +61,6 @@ class PriorityDefaultFormatter extends FormatterBase {
     foreach ($items as $delta => $item) {
       $build = [];
 
-      // Render the task. Nothing fancy as such.
-      // We build a "container" element, within which we render
-      // 2 child elements: one, the label of the property (Name);
-      // two, the value of the property (The name of the burrito
-      // as entered by the user).
       $build["task"] = [
         "#type" => "container",
         "#attributes" => [
