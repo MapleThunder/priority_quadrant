@@ -7,7 +7,6 @@ use Drupal\Core\Field\Annotation\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\priority_quadrant\ScaleConversionTrait;
 
 /**
  * Plugin implementation of the 'priority_default' formatter.
@@ -21,8 +20,6 @@ use Drupal\priority_quadrant\ScaleConversionTrait;
  * )
  */
 class PriorityDefaultFormatter extends FormatterBase {
-
-  use ScaleConversionTrait;
 
   /**
    * {@inheritdoc}

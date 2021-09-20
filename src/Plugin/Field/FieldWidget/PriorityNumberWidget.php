@@ -6,7 +6,6 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Field\WidgetInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\priority_quadrant\ScaleConversionTrait;
 
 /**
  * A priority entry.
@@ -20,8 +19,6 @@ use Drupal\priority_quadrant\ScaleConversionTrait;
  * )
  */
 class PriorityNumberWidget extends WidgetBase implements WidgetInterface {
-
-  use ScaleConversionTrait;
 
   /**
    * {@inheritdoc}

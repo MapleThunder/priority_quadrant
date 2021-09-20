@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: niko
- * Date: 24/03/19
- * Time: 4:47 PM
- */
 
 namespace Drupal\priority_quadrant\Plugin\Field\FieldWidget;
 
@@ -14,7 +8,6 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Field\WidgetInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\priority_quadrant\ScaleConversionTrait;
 
 /**
  * A priority entry.
@@ -28,8 +21,6 @@ use Drupal\priority_quadrant\ScaleConversionTrait;
  * )
  */
 class PriorityShirtWidget extends WidgetBase implements WidgetInterface {
-
-  use ScaleConversionTrait;
 
   /**
    * {@inheritdoc}
